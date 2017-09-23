@@ -94,10 +94,13 @@ for i in range(20, 1320):
   A_rank = (DataPALL['Volume_x'].ix[i + 1], DataPALL['Volume_x'].ix[i + 2],
             DataPALL['Volume_x'].ix[i + 3], DataPALL['Volume_x'].ix[i + 4], DataPALL['Volume_x'].ix[i + 5],
             DataPALL['Volume_x'].ix[i + 6], DataPALL['Volume_x'].ix[i + 7], DataPALL['Volume_x'].ix[i + 8],
-            DataPALL['Volume_x'].ix[i + 9], DataPALL['Volume_x'].ix[i + 10],)
+            DataPALL['Volume_x'].ix[i + 9], DataPALL['Volume_x'].ix[i + 10])
   arr = np.array(A_rank)
   AvgVolume = np.mean(arr)
-  High = np.float32(DataPALL['High_x'].ix[i])
+  if DataPALL['High_x'].ix[i] == "-":
+    pass
+  else:
+    High = np.float32(DataPALL['High_x'].ix[i])
   Low = np.float32(DataPALL['Low_x'].ix[i])
   Volume = DataPALL['Volume_x'].ix[i]
   Close = DataPALL['Adj Close_x'].ix[i]
